@@ -1,12 +1,22 @@
 <title>Details</title>
 
 <body>
+{% if book.image %}
   <img src="{{ book.image.url }}"><br>
   Book category:{{ book.category }}<br>
   Book name:{{ book.name }}<br>
   Description:{{ book.description }}<br>
   Book price:{{ book.price }}<br>
   Book year:{{ book.year }}<br>
-  <a href="{% url 'update' book.pk %}">update</a>
   <a href="{% url 'get_info' %}">home</a>
+{% else %}
+  <img src="media/images/image1.png"><br>
+
+  Book category:{{ book.category }}<br>
+  Book name:{{ book.name }}<br>
+  Description:{{ book.description }}<br>
+  Book price:{{ book.price }}<br>
+  Book year:{{ book.year }}<br>
+  <a href="{% url 'get_info' %}">home</a>
+{% endif %}
 </body>
